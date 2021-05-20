@@ -1,0 +1,14 @@
+<h1>Your Watch Lists</h1>
+
+<% @lists.each do |list| %>
+  <%= list.name %>
+<% end %>
+
+<%#= simple_form_for @movies do |f| %>
+  <%#= f.input :comment %>
+  <%#= f.association :movies %>
+  <%#= f.association :lists %>
+  <%#= f.button :submit %>
+<%# end %>
+
+<%= link_to 'Add a new list', new_list_path %>
