@@ -1,6 +1,7 @@
 <h1>Your Watch Lists</h1>
 
 <% @lists.each do |list| %>
+  <%= link_to list.name, list_path(list), class:'text-decoration-none'%>
   <%= list.name %>
 <% end %>
 
@@ -11,4 +12,4 @@
   <%#= f.button :submit %>
 <%# end %>
 
-<%= link_to 'Add a new list', new_list_path %>
+<%= link_to 'Create a new list', new_list_path %>
