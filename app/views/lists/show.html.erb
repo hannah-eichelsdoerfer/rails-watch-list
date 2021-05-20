@@ -1,11 +1,38 @@
 <h2><%= @list.name %></h2>
 
 <h4>Movies in this list:</h4>
-<p><%= link_to 'Add a movie to this list', new_list_bookmark_path(@list) %></p>
+<p><%= link_to (fa_icon "plus", text: 'Add a movie to this list'), new_list_bookmark_path(@list) %></p>
 
-
-<% @list.movies.each do |movie| %>
-  <%= movie.title %>
+<%# LeWagon UI-Kit SearchBar %>
+<%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
 <% end %>
+<%# search bar end %>
 
-<%= link_to 'Back to all lists', lists_path %>
+<div class="row">
+  <% @list.movies.each do |movie| %>
+    <div class="col-4">
+      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+      <div class="card-movie">
+        <%= image_tag movie.poster_url, alt: movie.title, class: 'movie-img rounded-top', width: 200 %>
+        <div class="card-movie-infos">
+          <div>
+            <h4><%= movie.title %></h4>
+            <p><%= movie.rating %></p>
+            <p><%= movie.overview %></p>
+            <p>"<%= bookmark.comment %>"</p>
+          </div>
+          <%= link_to (fa_icon "trash"), bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list?"}, class: 'text-danger' %> 
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%= link_to (fa_icon "arrow-left"), lists_path, class: "btn btn-secondary" %>

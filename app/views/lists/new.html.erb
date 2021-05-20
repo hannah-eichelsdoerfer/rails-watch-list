@@ -1,7 +1,7 @@
 <h3>Add a new list</h3>
 
 <%= simple_form_for @list do |f| %>
-  <%= f.input :name, placeholder: 'Drama' %>
+  <%= f.input :name %>
   <%= f.submit class: 'btn btn-flat' %>
 <% end %>
 
@@ -10,4 +10,4 @@
   <%#= f.submit %>
 <%# end %>
 
-<%= link_to 'Cancel', root_path %> 
+<%= link_to (fa_icon "times"), root_path %> 
