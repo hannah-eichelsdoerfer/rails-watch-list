@@ -27,3 +27,5 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicText();
   AOS.init();
 });
+
+//= require select2

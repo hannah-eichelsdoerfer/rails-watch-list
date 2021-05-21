@@ -56,3 +56,5 @@ gem "font-awesome-rails"
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'cloudinary', '~> 1.16.0'
+
+gem "select2-rails"
