@@ -1,14 +1,14 @@
 <h1>Your Watch Lists</h1>
 
 <p>
-  <span id="headline-typed-text"></span>
+  <span id="headline-typed-text" class="typed-js"></span>
 </p>
 
 <div class="row">
   <% @lists.each do |list| %>
-    <div class="col">
+    <div class="col-4">
       <%= link_to list_path(list), class:'text-decoration-none' do %>
-        <div class="card-category col-auto mr-3 p-2 ">
+        <div class="card-category" data-aos="fade-up" data-aos-duration="1000">
           <%= list.name %>
         </div>
       <% end %>
@@ -16,4 +16,6 @@
   <% end %>
 </div>
 
-<%= link_to (fa_icon "plus", text: 'Create a new list'), new_list_path, class:'text-decoration-none' %>
+<div class="d-flex justify-content-center" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="1000">
+  <%= link_to (fa_icon "plus", text: 'Create a new list'), new_list_path %>
+</div>

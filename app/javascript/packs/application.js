@@ -19,8 +19,11 @@ require("channels")
 // TESTING FOR MYSELF:
 // console.log("Hello from app/javascript/packs/application.js!");
 
-import { loadDynamicText } from '../components/index';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+import { initTyped, loadDynamicText } from './plugins/init_typedjs';
 
 document.addEventListener('turbolinks:load', () => {
   loadDynamicText();
+  AOS.init();
 });
