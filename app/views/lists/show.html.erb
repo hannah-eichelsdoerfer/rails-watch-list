@@ -16,7 +16,7 @@
             <h4><%= movie.title %></h4>
             <p><%= movie.rating %></p>
             <p><%= movie.overview %></p>
-            <p>"<%= bookmark.comment %>"</p>
+            <p id="bookmark-comment">"<%= bookmark.comment %>"</p>
           </div>
           <%= link_to (fa_icon "trash"), bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list?"}, class: 'text-danger' %> 
         </div>
@@ -26,4 +26,4 @@
 </div>
 
 
-<%= link_to (fa_icon "arrow-left"), lists_path %>
+<%= link_to "❮", lists_path %>
