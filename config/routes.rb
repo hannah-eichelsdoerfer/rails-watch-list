@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # resources :lists
   
   root to: 'lists#index'
-  resources :lists, only: [:index, :new, :create, :show] do
-  resources :bookmarks, only: [:new, :create]
+  resources :lists, only: [:index, :new, :create, :show, :destroy] do
+    resources :bookmarks, only: [:new, :create]
   end
   # resources :reviews, only: :destroy
   resources :bookmarks, only: [:destroy]

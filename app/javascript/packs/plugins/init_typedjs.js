@@ -15,7 +15,7 @@ const initTyped = () => {
 
 const loadDynamicText = () => {
   new Typed('#headline-typed-text', {
-    strings: ["Best platform ever!", "Awsome stuff!"],
+    strings: ["Best platform ever!", "Awsome stuff!", "Where I store all my movies!", "New favourite app!"],
     typeSpeed: 100,
     loop: false // true
   });
